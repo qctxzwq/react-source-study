@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="progress-bar" style="background-color: lightblue;width: 0;height: 20px;"></div>
+  <button class="begin">开始</button>
+</body>
+<script>
+  let flag = true
+  let div = document.querySelector(".progress-bar")
+  let btn = document.querySelector("button")
+  btn.addEventListener('click', () => {
+    if (flag) {
+      requestAnimationFrame(progress)
+    }
+  })
+  const progress = () => {
+    div.style.width = div.offsetWidth + 1 + 'px'
+    div.innerHTML = ~~(div.offsetWidth / 2) + "%"
+    if (div.offsetWidth < 200) {
+      requestAnimationFrame(progress)
+    } else {
+      flag = false
+    }
+  }
+</script>
+
+</html>

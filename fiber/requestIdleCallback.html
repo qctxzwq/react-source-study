@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 作为用户告诉浏览器，现在执行callback函数，但是它的优先级较低，告诉浏览器可以在空闲的时候执行callback
+    // 但是如果到了超时时间后，就必须马上执行了
+
+    // window.requestIdleCallback(callback, { timeout: 1000 })
+
+    function sleep(delay) {
+      for (let t = Date.now(); Date.now() - t <= delay;) { }
+    }
+    const works = [
+      () => {
+        console.log('task 1 start');
+        sleep(20)
+        console.log('task 1 end');
+      },
+      () => {
+        console.log('task 2 start');
+        sleep(20)
+        console.log('task 2 end');
+      },
+      () => {
+        console.log('task 3 start');
+        sleep(20)
+        console.log('task 3 end');
+      }
+    ]
+    window.requestIdleCallback(workloop, { timeout: 1000 })
+    // deadline是一个对象，有两个属性
+    // timeRemaining() 可以返回此帧还有多少时间
+    // didTimeout 此callback任务是否超时
+    function workloop(deadline) {
+      console.log('本帧剩余时间' + deadline.timeRemaining());
+
+      // 如果此帧剩余时间超过0，或者任务已经超时
+      while ((deadline.timeRemaining() > 0 || deadline.didTimeout) && works.length) {
+        performUnitOfWork()
+      } // 若没有剩余时间，则放弃执行任务控制权，执行权交还给浏览器
+
+
+      // performUnitOfWork()
+      if (works.length > 0) {
+        window.requestIdleCallback(workloop, { timeout: 1000 })
+      }
+    }
+    function performUnitOfWork() {
+      works.shift()()
+    }
+  </script>
+</body>
+
+</html>
