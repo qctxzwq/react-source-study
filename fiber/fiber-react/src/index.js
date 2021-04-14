@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from './react';
+// import ReactDOM from './ReactDom/index';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let style = { border: '3px solid red', margin: '5px' }
+// JSX
+let element = (
+  <div id="A1" style={style}>
+    A1
+    <div id="B1" style={style}>
+      B1
+      <div id="C1" style={style}>C1</div>
+      <div id="C2" style={style}>C2</div>
+    </div>
+    <div id="B2" style={style}>B2</div>
+  </div>
+)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// let element = React.createElement("div", {
+//   id: "A1"
+// }, React.createElement("div", {
+//   id: "B1"
+// }, React.createElement("div", {
+//   id: "C1"
+// }), React.createElement("div", {
+//   id: "C2"
+// })), React.createElement("div", {
+//   id: "B2"
+// }));
+
+console.log(element);
+
+// ReactDOM.render(
+//   element,
+//   document.getElementById('root')
+// );
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <ProRouter />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+// reportWebVitals();
