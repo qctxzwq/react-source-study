@@ -1,0 +1,27 @@
+.layout {
+  display: flex;
+  height: 100%;
+}
+
+.slide {
+  flex-basis: 300px;
+  border-right: 1px #ccc solid ;
+}
+
+.item{
+  text-align: center;
+  cursor: pointer;
+}
+
+.board {
+  flex: 1;
+}
+
+.header{
+  height: 60px;
+  border-bottom: 1px #ccc solid;
+  padding: 10px;
+}
+.child{
+  padding: 10px;
+}
