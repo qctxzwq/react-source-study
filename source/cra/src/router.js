@@ -6,8 +6,10 @@ import About from './pages/about'
 import ForwardRef from './pages/forwardRef'
 import Context from './pages/context'
 import NoMatch from './pages/noMatch'
-import ConcurrentMode from './pages/concurrentmode'
-
+import DIYConcurrent from './pages/concurrentmode'
+import Suspense from "./pages/suspense"
+import Hooks from "./pages/hooks"
+import Children from "./pages/children"
 
 class ProRouter extends React.Component {
   render() {
@@ -20,7 +22,10 @@ class ProRouter extends React.Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/forwardRef" component={ForwardRef} />
             <Route exact path="/context" component={Context} />
-            <Route exact path="/concurrentMode" component={ConcurrentMode} />
+            <Route exact path="/concurrentMode" component={DIYConcurrent} />
+            <Route exact path="/suspense" component={Suspense} />
+            <Route exact path="/hooks" component={Hooks} />
+            <Route exact path="/children" component={Children} />
             <Route component={NoMatch} />
           </Switch>
         </Layout>

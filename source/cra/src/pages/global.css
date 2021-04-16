@@ -1,0 +1,21 @@
+.warpper{
+  width: 500px;
+  margin: 100px auto;
+  animation: huadong 1s infinite alternate linear;
+} 
+.warpper .item{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: lightblue;
+  margin-right: 1px;
+}
+
+@keyframes huadong{
+  0%{
+    margin-left: 0px;
+  }
+  100%{
+    margin-left: 200px;
+  }
+}
