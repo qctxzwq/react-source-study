@@ -15,6 +15,7 @@ function requestData() {
   throw promise
 }
 
+
 function SuspenseComp() {
   const data = requestData()
   return <p>{data}</p>

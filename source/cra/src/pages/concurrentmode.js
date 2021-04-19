@@ -66,8 +66,9 @@ class Parent extends React.Component {
   }
 }
 
+
 export default () => (
-  (<ConcurrentMode>
+  <ConcurrentMode>
     <Parent />
-  </ConcurrentMode>)
+  </ConcurrentMode>
 )

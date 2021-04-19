@@ -10,6 +10,7 @@ import DIYConcurrent from './pages/concurrentmode'
 import Suspense from "./pages/suspense"
 import Hooks from "./pages/hooks"
 import Children from "./pages/children"
+import DOMRender from "./pages/react-dom/index"
 
 class ProRouter extends React.Component {
   render() {
@@ -26,6 +27,7 @@ class ProRouter extends React.Component {
             <Route exact path="/suspense" component={Suspense} />
             <Route exact path="/hooks" component={Hooks} />
             <Route exact path="/children" component={Children} />
+            <Route exact path="/domrender" component={DOMRender} />
             <Route component={NoMatch} />
           </Switch>
         </Layout>
